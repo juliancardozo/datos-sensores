@@ -53,4 +53,17 @@ public class Recoleccion {
     public void setRecolectado(LocalDateTime recolectado) {
         this.recolectado = recolectado;
     }
+
+
+    @Override
+    public String toString() {
+        return "Recoleccion{" +
+                "id=" + id +
+                ", contenedorId='" + contenedorId + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", recolectado=" + recolectado +
+                '}';
+    }
+
 }

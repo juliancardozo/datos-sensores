@@ -27,9 +27,10 @@ public class SimuladorRecoleccion {
                 dto.lat = -34.6 + random.nextDouble() * 0.01;
                 dto.lon = -58.4 + random.nextDouble() * 0.01;
                 dto.recolectado = LocalDateTime.now().minusHours(random.nextInt(48));
-                service.guardar(dto);
-                log.info("Recolectado contenedor {} en ({} , {})", dto.contenedorId, dto.lat, dto.lon);
+                var saved = service.guardar(dto);
+                log.info("Insertada {}", saved);
             }
+            log.info("Simulador carg\u00f3 5 eventos de recolecci\u00f3n al iniciar");
         };
     }
 }

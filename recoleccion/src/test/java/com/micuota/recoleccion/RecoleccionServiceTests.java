@@ -30,11 +30,16 @@ class RecoleccionServiceTests {
         dto.lon = 20.0;
         dto.recolectado = LocalDateTime.now();
 
+        Recoleccion saved = service.guardar(dto);
+
         service.guardar(dto);
+
 
         List<Recoleccion> list = repository.findByContenedorId("TEST1");
         assertFalse(list.isEmpty());
         Recoleccion r = list.get(0);
+        assertEquals(saved.getId(), r.getId());
+
         assertEquals(10.0, r.getLat());
         assertEquals(20.0, r.getLon());
     }
