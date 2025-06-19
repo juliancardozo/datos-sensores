@@ -3,6 +3,7 @@
 This project contains two Spring Boot services used to demo sensor data and garbage collection monitoring.
 
 Para una descripción en español del servicio interno de monitoreo de residuos industriales consulte [docs/Propuesta_Servicio_TEYMA.md](docs/Propuesta_Servicio_TEYMA.md).
+Para ver una guia de simulacion consulta [docs/Simulacion_Casos_de_Uso.md](docs/Simulacion_Casos_de_Uso.md).
 
 ## Modules
 
