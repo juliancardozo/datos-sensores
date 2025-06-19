@@ -1,7 +1,7 @@
 package com.example.sensorapi.controller;
 
 import com.example.sensorapi.model.SensorReading;
-import com.example.sensorapi.repository.SensorReadingRepository;
+import com.example.sensorapi.repository.SensorReadingStore;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @RequestMapping("/api/readings")
 public class SensorReadingController {
 
-    private final SensorReadingRepository repository;
+    private final SensorReadingStore store;
 
-    public SensorReadingController(SensorReadingRepository repository) {
-        this.repository = repository;
+    public SensorReadingController(SensorReadingStore store) {
+        this.store = store;
     }
 
     @PostMapping
@@ -24,11 +24,11 @@ public class SensorReadingController {
         if (reading.getTimestamp() == null) {
             reading.setTimestamp(LocalDateTime.now());
         }
-        return repository.save(reading);
+        return store.save(reading);
     }
 
     @GetMapping
     public List<SensorReading> findAll() {
-        return repository.findAll();
+        return store.findAll();
     }
 }

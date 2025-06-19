@@ -3,6 +3,7 @@
 This project contains two Spring Boot services used to demo sensor data and garbage collection monitoring.
 
 Para una descripción en español del servicio interno de monitoreo de residuos industriales consulte [docs/Propuesta_Servicio_TEYMA.md](docs/Propuesta_Servicio_TEYMA.md).
+Para ver una guia de simulacion consulta [docs/Simulacion_Casos_de_Uso.md](docs/Simulacion_Casos_de_Uso.md).
 
 ## Modules
 
@@ -10,6 +11,9 @@ Para una descripción en español del servicio interno de monitoreo de residuos 
 - `recoleccion` – garbage collection monitoring service that preloads random events on startup.
 
 Both modules use the Maven wrapper found in `sensor-api/mvnw`.
+The `sensor-api` service supports SQL or MongoDB storage. Set `sensor.storage.type=mongo`
+in `sensor-api/src/main/resources/application.properties` (or environment variable)
+to enable MongoDB.
 
 ## Running locally
 
