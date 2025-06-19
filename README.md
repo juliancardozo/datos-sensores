@@ -2,6 +2,8 @@
 
 This project contains two Spring Boot services used to demo sensor data and garbage collection monitoring.
 
+Para una descripción en español del servicio interno de monitoreo de residuos industriales consulte [docs/Propuesta_Servicio_TEYMA.md](docs/Propuesta_Servicio_TEYMA.md).
+
 ## Modules
 
 - `sensor-api` – sample REST API serving sensor readings.
