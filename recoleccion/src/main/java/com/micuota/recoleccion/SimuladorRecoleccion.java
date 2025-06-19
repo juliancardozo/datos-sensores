@@ -36,7 +36,8 @@ public class SimuladorRecoleccion {
                     dto.lon = -58.4 + random.nextDouble() * 0.01;
                     dto.recolectado = LocalDateTime.now().minusHours(random.nextInt(48));
                     var saved = service.guardar(dto);
-                    writer.write(String.format("%d,%s,%.6f,%.6f,%s\n",
+                    writer.write(String.format("%s,%s,%.6f,%.6f,%s\n",
+
                             saved.getId(), saved.getContenedorId(), saved.getLat(), saved.getLon(), saved.getRecolectado()));
                     log.info("Insertada {}", saved);
                 }
