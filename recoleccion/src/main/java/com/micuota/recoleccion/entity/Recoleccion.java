@@ -9,16 +9,28 @@ public class Recoleccion {
     @Id
     private String id;
 
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+public class Recoleccion {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
     private String contenedorId;
     private double lat;
     private double lon;
     private LocalDateTime recolectado;
+
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
+
         this.id = id;
     }
 
@@ -54,6 +66,7 @@ public class Recoleccion {
         this.recolectado = recolectado;
     }
 
+
     @Override
     public String toString() {
         return "Recoleccion{" +
@@ -64,4 +77,5 @@ public class Recoleccion {
                 ", recolectado=" + recolectado +
                 '}';
     }
+
 }

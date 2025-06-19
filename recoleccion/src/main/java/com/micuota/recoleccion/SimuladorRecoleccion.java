@@ -8,9 +8,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -24,6 +26,7 @@ public class SimuladorRecoleccion {
         return args -> {
             Random random = new Random();
             String[] ids = {"A1", "B2", "C3"};
+
             try (BufferedWriter writer = Files.newBufferedWriter(Path.of("recoleccion-datos.csv"))) {
                 writer.write("id,contenedorId,lat,lon,recolectado\n");
                 for (int i = 0; i < 5; i++) {
@@ -34,6 +37,7 @@ public class SimuladorRecoleccion {
                     dto.recolectado = LocalDateTime.now().minusHours(random.nextInt(48));
                     var saved = service.guardar(dto);
                     writer.write(String.format("%s,%s,%.6f,%.6f,%s\n",
+
                             saved.getId(), saved.getContenedorId(), saved.getLat(), saved.getLon(), saved.getRecolectado()));
                     log.info("Insertada {}", saved);
                 }
