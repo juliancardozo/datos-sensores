@@ -1,7 +1,7 @@
 package com.example.sensorapi.repository;
 
 import com.example.sensorapi.model.SensorReading;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface SensorReadingRepository extends JpaRepository<SensorReading, Long> {
+public interface SensorReadingRepository extends MongoRepository<SensorReading, String> {
 }
