@@ -4,11 +4,19 @@ import com.micuota.recoleccion.dto.RecoleccionDTO;
 import com.micuota.recoleccion.entity.Recoleccion;
 import com.micuota.recoleccion.service.RecoleccionService;
 import com.micuota.recoleccion.repository.RecoleccionRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -19,7 +27,9 @@ import java.util.Map;
 @RequestMapping("/recoleccion")
 public class RecoleccionController {
 
+
     private static final Logger log = LoggerFactory.getLogger(RecoleccionController.class);
+
 
     @Autowired
     private RecoleccionService service;
@@ -29,8 +39,12 @@ public class RecoleccionController {
 
     @PostMapping
     public ResponseEntity<String> registrar(@RequestBody RecoleccionDTO dto) {
+
+
         var saved = service.guardar(dto);
         log.info("Registrada {}", saved);
+        service.guardar(dto);
+
         return ResponseEntity.ok("Recolección registrada");
     }
 
@@ -40,6 +54,7 @@ public class RecoleccionController {
         log.info("Historial solicitado para {}: {} registros", contenedorId, list.size());
         return list;
     }
+
 
     @GetMapping(value = "/export", produces = "text/csv")
     public void exportar(HttpServletResponse response) throws IOException {
@@ -58,4 +73,5 @@ public class RecoleccionController {
         log.info("Estad\u00edsticas solicitadas");
         return service.obtenerEstadisticas();
     }
+
 }

@@ -54,6 +54,7 @@ public class Recoleccion {
         this.recolectado = recolectado;
     }
 
+
     @Override
     public String toString() {
         return "Recoleccion{" +
@@ -64,4 +65,5 @@ public class Recoleccion {
                 ", recolectado=" + recolectado +
                 '}';
     }
+
 }

@@ -36,5 +36,6 @@ class RecoleccionControllerTests {
         mockMvc.perform(get("/recoleccion/estadisticas"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.porContenedor.C1").value(1));
+
     }
 }
