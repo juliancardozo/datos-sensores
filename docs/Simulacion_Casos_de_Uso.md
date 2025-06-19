@@ -26,3 +26,11 @@ Este documento describe los cambios sugeridos para replicar escenarios de monito
 4. **El usuario** visualiza resultados en un dashboard o mediante herramientas de análisis.
 
 Este enfoque aprovecha el código existente y minimiza dependencias, priorizando el flujo principal de la aplicación.
+
+## 6. Prueba de simulación
+
+El proyecto incluye un test llamado `SimulacionCasosDeUsoTests` que genera el
+archivo `simulacion-containers.csv` con las lecturas de cinco contenedores que
+se llenan a ritmos distintos. En cada paso se registran los niveles de llenado
+y se marca con `FULL` cuando un contenedor alcanza el 100 %. Este CSV permite
+visualizar de forma sencilla la evolución y los eventos de llenado.
