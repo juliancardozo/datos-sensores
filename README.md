@@ -2,6 +2,7 @@
 
 This project contains two Spring Boot services used to demo sensor data and garbage collection monitoring.
 
+
 Para una descripción en español del servicio interno de monitoreo de residuos industriales consulte [docs/Propuesta_Servicio_TEYMA.md](docs/Propuesta_Servicio_TEYMA.md).
 Para ver una guia de simulacion consulta [docs/Simulacion_Casos_de_Uso.md](docs/Simulacion_Casos_de_Uso.md).
 
@@ -11,9 +12,15 @@ Para ver una guia de simulacion consulta [docs/Simulacion_Casos_de_Uso.md](docs/
 - `recoleccion` – garbage collection monitoring service that preloads random events on startup.
 
 Both modules use the Maven wrapper found in `sensor-api/mvnw`.
+
+
+The applications now store their data in MongoDB. Ensure a MongoDB instance is
+available locally on the default port before running the services.
+
 The `sensor-api` service supports SQL or MongoDB storage. Set `sensor.storage.type=mongo`
 in `sensor-api/src/main/resources/application.properties` (or environment variable)
 to enable MongoDB.
+
 
 ## Running locally
 
@@ -26,7 +33,6 @@ to enable MongoDB.
 ```
 
 The `recoleccion` module listens on port `8081` and logs the five generated events at startup. Those events are also exported to `recoleccion-datos.csv` so they can be imported in Power BI. The service exposes `/recoleccion/export` to download the CSV and `/recoleccion/estadisticas` to retrieve aggregated counts per container and hour.
-
 
 ## One-click sprint review
 

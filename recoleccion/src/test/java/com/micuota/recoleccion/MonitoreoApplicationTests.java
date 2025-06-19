@@ -17,7 +17,6 @@ class MonitoreoApplicationTests {
     RecoleccionRepository repository;
 
     @Test
-
     void startupSimulatorLoadsFiveEntries() throws Exception {
         assertEquals(5, repository.findAll().size());
         long lines = Files.lines(Path.of("recoleccion-datos.csv")).count();

@@ -1,5 +1,14 @@
 package com.micuota.recoleccion.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDateTime;
+
+@Document(collection = "recolecciones")
+public class Recoleccion {
+    @Id
+    private String id;
+
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -9,16 +18,19 @@ public class Recoleccion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private String contenedorId;
     private double lat;
     private double lon;
     private LocalDateTime recolectado;
 
-    public Long getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
+
         this.id = id;
     }
 

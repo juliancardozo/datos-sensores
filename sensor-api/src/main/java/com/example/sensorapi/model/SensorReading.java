@@ -1,16 +1,13 @@
 package com.example.sensorapi.model;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
-@Entity
-@Document("sensor_readings")
+@Document(collection = "sensor_readings")
 public class SensorReading {
-    @jakarta.persistence.Id
-    @org.springframework.data.annotation.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id
+    private String id;
 
     private Long containerId;
 
@@ -26,7 +23,7 @@ public class SensorReading {
         this.timestamp = timestamp;
     }
 
-    public Long getId() { return id; }
+    public String getId() { return id; }
     public Long getContainerId() { return containerId; }
     public void setContainerId(Long containerId) { this.containerId = containerId; }
     public Double getLevelPercentage() { return levelPercentage; }
