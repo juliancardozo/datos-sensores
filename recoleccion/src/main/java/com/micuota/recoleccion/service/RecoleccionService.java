@@ -9,6 +9,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
 @Service
 public class RecoleccionService {
     @Autowired
@@ -28,4 +39,22 @@ public class RecoleccionService {
         log.debug("Saved {}", saved);
         return saved;
     }
+
+
+    public List<Recoleccion> listarTodos() {
+        return repository.findAll();
+    }
+
+    public Map<String, Object> obtenerEstadisticas() {
+        List<Recoleccion> all = repository.findAll();
+        Map<String, Long> porContenedor = all.stream()
+                .collect(Collectors.groupingBy(Recoleccion::getContenedorId, Collectors.counting()));
+        Map<Integer, Long> porHora = all.stream()
+                .collect(Collectors.groupingBy(r -> r.getRecolectado().getHour(), Collectors.counting()));
+        Map<String, Object> result = new HashMap<>();
+        result.put("porContenedor", porContenedor);
+        result.put("porHora", porHora);
+        return result;
+    }
+
 }

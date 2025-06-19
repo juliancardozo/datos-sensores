@@ -34,13 +34,28 @@ class RecoleccionServiceTests {
 
         service.guardar(dto);
 
-
         List<Recoleccion> list = repository.findByContenedorId("TEST1");
         assertFalse(list.isEmpty());
         Recoleccion r = list.get(0);
         assertEquals(saved.getId(), r.getId());
-
+      
         assertEquals(10.0, r.getLat());
         assertEquals(20.0, r.getLon());
     }
+
+    @Test
+    void estadisticasAgrupanDatos() {
+        RecoleccionDTO dto = new RecoleccionDTO();
+        dto.contenedorId = "STAT1";
+        dto.lat = 0.0;
+        dto.lon = 0.0;
+        dto.recolectado = LocalDateTime.now().withHour(5);
+        service.guardar(dto);
+
+        var stats = service.obtenerEstadisticas();
+        @SuppressWarnings("unchecked")
+        Map<String, Long> porContenedor = (Map<String, Long>) stats.get("porContenedor");
+        assertTrue(porContenedor.get("STAT1") >= 1);
+    }
+
 }
