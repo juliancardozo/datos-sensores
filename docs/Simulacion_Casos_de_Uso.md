@@ -13,6 +13,9 @@ Este documento describe los cambios sugeridos para replicar escenarios de monito
 ## 3. Backend IoT (microservicios Spring Boot)
 - Los módulos `sensor-api` y `recoleccion` del repositorio representan microservicios independientes.
 - Mantener la ingesta a través de los controladores REST ya presentes y almacenar los registros en las bases de datos definidas por JPA/H2.
+- Por defecto, `sensor-api` usa H2 en memoria. Se puede habilitar almacenamiento en MongoDB
+  estableciendo `sensor.storage.type=mongo` en las propiedades de la aplicación.
+
 - Habilitar endpoints adicionales si se requieren consultas más específicas de contenedores o proyecciones históricas.
 
 ## 4. Frontend / Dashboard
@@ -26,3 +29,12 @@ Este documento describe los cambios sugeridos para replicar escenarios de monito
 4. **El usuario** visualiza resultados en un dashboard o mediante herramientas de análisis.
 
 Este enfoque aprovecha el código existente y minimiza dependencias, priorizando el flujo principal de la aplicación.
+
+## 6. Prueba de simulación
+
+El proyecto incluye un test llamado `SimulacionCasosDeUsoTests` que genera el
+archivo `simulacion-containers.csv` con las lecturas de cinco contenedores que
+se llenan a ritmos distintos. En cada paso se registran los niveles de llenado
+y se marca con `FULL` cuando un contenedor alcanza el 100 %. Este CSV permite
+visualizar de forma sencilla la evolución y los eventos de llenado.
+
