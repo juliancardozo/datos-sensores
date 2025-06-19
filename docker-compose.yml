@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+
+  sensor-api:
+    build: ./sensor-api
+    environment:
+      SENSOR_STORAGE_TYPE: mongo
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/sensors
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+
+  recoleccion:
+    build: ./recoleccion
+    ports:
+      - "8081:8081"

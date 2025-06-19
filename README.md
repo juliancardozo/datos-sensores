@@ -12,6 +12,9 @@ Para ver una guia de simulacion consulta [docs/Simulacion_Casos_de_Uso.md](docs/
 - `recoleccion` – garbage collection monitoring service that preloads random events on startup.
 
 Both modules use the Maven wrapper found in `sensor-api/mvnw`.
+The `sensor-api` service supports SQL or MongoDB storage. Set `sensor.storage.type=mongo`
+in `sensor-api/src/main/resources/application.properties` (or environment variable)
+to enable MongoDB.
 
 
 The applications now store their data in MongoDB. Ensure a MongoDB instance is
@@ -37,6 +40,16 @@ The `recoleccion` module listens on port `8081` and logs the five generated even
 ## One-click sprint review
 
 Execute `./one-click-review.sh` to launch both services simultaneously. The script runs each module with the Maven wrapper and waits until you stop it with `Ctrl+C`.
+
+## Running with Docker Compose
+
+To run the whole stack including MongoDB in containers, build the images and start the services with:
+
+```bash
+docker compose up --build
+```
+
+The sensor API will listen on port `8080` and use the `mongo` service as its database. The `recoleccion` service runs on port `8081`.
 
 ## Running tests
 

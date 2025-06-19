@@ -1,13 +1,17 @@
 package com.example.sensorapi.model;
 
-import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
-@Document(collection = "sensor_readings")
+@Entity
+@Document("sensor_readings")
 public class SensorReading {
-    @Id
-    private String id;
+    @jakarta.persistence.Id
+    @org.springframework.data.annotation.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private Long containerId;
 
