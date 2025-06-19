@@ -15,5 +15,4 @@ class MonitoreoApplicationTests {
     @Test
     void startupSimulatorLoadsFiveEntries() {
         assertEquals(5, repository.findAll().size());
-    }
 }
