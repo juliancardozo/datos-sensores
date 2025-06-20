@@ -14,7 +14,10 @@ public class Recoleccion {
     private String contenedorId;
     private double lat;
     private double lon;
-    private LocalDateTime recolectado;
+    private double temperatura;
+    private double presion;
+    private double capacidadOcupada;
+    private LocalDateTime fecha;
 
     public String getId() {
         return id;
@@ -48,12 +51,36 @@ public class Recoleccion {
         this.lon = lon;
     }
 
-    public LocalDateTime getRecolectado() {
-        return recolectado;
+    public double getTemperatura() {
+        return temperatura;
     }
 
-    public void setRecolectado(LocalDateTime recolectado) {
-        this.recolectado = recolectado;
+    public void setTemperatura(double temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    public double getPresion() {
+        return presion;
+    }
+
+    public void setPresion(double presion) {
+        this.presion = presion;
+    }
+
+    public double getCapacidadOcupada() {
+        return capacidadOcupada;
+    }
+
+    public void setCapacidadOcupada(double capacidadOcupada) {
+        this.capacidadOcupada = capacidadOcupada;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
 
     @Override
@@ -63,7 +90,10 @@ public class Recoleccion {
                 ", contenedorId='" + contenedorId + '\'' +
                 ", lat=" + lat +
                 ", lon=" + lon +
-                ", recolectado=" + recolectado +
+                ", temperatura=" + temperatura +
+                ", presion=" + presion +
+                ", capacidadOcupada=" + capacidadOcupada +
+                ", fecha=" + fecha +
                 '}';
     }
 }

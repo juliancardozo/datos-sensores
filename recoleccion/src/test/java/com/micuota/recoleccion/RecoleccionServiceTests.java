@@ -28,7 +28,10 @@ class RecoleccionServiceTests {
         dto.contenedorId = "TEST1";
         dto.lat = 10.0;
         dto.lon = 20.0;
-        dto.recolectado = LocalDateTime.now();
+        dto.temperatura = 25.0;
+        dto.presion = 101.5;
+        dto.capacidadOcupada = 50.0;
+        dto.fecha = LocalDateTime.now();
 
         Recoleccion saved = service.guardar(dto);
 
@@ -41,6 +44,9 @@ class RecoleccionServiceTests {
 
         assertEquals(10.0, r.getLat());
         assertEquals(20.0, r.getLon());
+        assertEquals(25.0, r.getTemperatura());
+        assertEquals(101.5, r.getPresion());
+        assertEquals(50.0, r.getCapacidadOcupada());
     }
 
     @Test
@@ -49,7 +55,10 @@ class RecoleccionServiceTests {
         dto.contenedorId = "STAT1";
         dto.lat = 0.0;
         dto.lon = 0.0;
-        dto.recolectado = LocalDateTime.now().withHour(5);
+        dto.temperatura = 0.0;
+        dto.presion = 101.0;
+        dto.capacidadOcupada = 0.0;
+        dto.fecha = LocalDateTime.now().withHour(5);
         service.guardar(dto);
 
         var stats = service.obtenerEstadisticas();

@@ -58,6 +58,9 @@ public class CrossServicesIntegrationTest {
         dto.contenedorId = String.valueOf(created.getContainerId());
         dto.lat = 0.0;
         dto.lon = 0.0;
+        dto.temperatura = 20.0;
+        dto.presion = 101.0;
+        dto.capacidadOcupada = 60.0;
         restTemplate.postForObject("http://localhost:" + port + "/recoleccion", dto, Recoleccion.class);
 
         Recoleccion[] list = restTemplate.getForObject("http://localhost:" + port + "/recoleccion/" + dto.contenedorId,
