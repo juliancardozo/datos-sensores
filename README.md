@@ -49,7 +49,8 @@ To run the whole stack including MongoDB in containers, build the images and sta
 docker compose up --build
 ```
 
-The sensor API will listen on port `8080` and use the `mongo` service as its database. The `recoleccion` service runs on port `8081`.
+The sensor API will listen on port `8080` and use the `mongo` service as its database.
+The `recoleccion` service also connects to the same `mongo` container and runs on port `8081`.
 
 ## Running tests
 

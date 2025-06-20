@@ -17,5 +17,9 @@ services:
 
   recoleccion:
     build: ./recoleccion
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/recoleccion
+    depends_on:
+      - mongo
     ports:
       - "8081:8081"
