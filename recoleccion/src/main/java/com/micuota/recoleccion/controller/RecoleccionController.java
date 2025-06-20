@@ -32,13 +32,12 @@ public class RecoleccionController {
     private RecoleccionRepository repository;
 
     @PostMapping
-    public ResponseEntity<String> registrar(@RequestBody RecoleccionDTO dto) {
+    public ResponseEntity<Recoleccion> registrar(@RequestBody RecoleccionDTO dto) {
 
         var saved = service.guardar(dto);
         log.info("Registrada {}", saved);
-        service.guardar(dto);
 
-        return ResponseEntity.ok("Recolección registrada");
+        return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{contenedorId}")
