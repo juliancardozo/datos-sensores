@@ -1,15 +1,12 @@
 package com.example.sensorapi.model;
 
 
-import jakarta.persistence.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
 @Document("sensor_readings")
 public class SensorReading {
-    @jakarta.persistence.Id
     @org.springframework.data.annotation.Id
     private String id = UUID.randomUUID().toString();
 

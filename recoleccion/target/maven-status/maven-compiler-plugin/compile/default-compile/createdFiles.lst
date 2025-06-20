@@ -1,0 +1,9 @@
+com\micuota\recoleccion\SimuladorRecoleccion.class
+com\micuota\recoleccion\grafo\ContainerNode.class
+com\micuota\recoleccion\MonitoreoApplication.class
+com\micuota\recoleccion\repository\RecoleccionRepository.class
+com\micuota\recoleccion\grafo\RutaOptimaService.class
+com\micuota\recoleccion\entity\Recoleccion.class
+com\micuota\recoleccion\service\RecoleccionService.class
+com\micuota\recoleccion\dto\RecoleccionDTO.class
+com\micuota\recoleccion\controller\RecoleccionController.class

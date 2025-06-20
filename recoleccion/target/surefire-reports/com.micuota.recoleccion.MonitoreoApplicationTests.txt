@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.micuota.recoleccion.MonitoreoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.253 s -- in com.micuota.recoleccion.MonitoreoApplicationTests

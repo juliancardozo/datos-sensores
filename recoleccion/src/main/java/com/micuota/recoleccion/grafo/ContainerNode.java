@@ -1,5 +1,7 @@
 package com.micuota.recoleccion.grafo;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Representa un contenedor con su ubicación y estado de llenado.
  */

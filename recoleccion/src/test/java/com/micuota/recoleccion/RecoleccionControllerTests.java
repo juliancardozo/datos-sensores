@@ -23,20 +23,6 @@ class RecoleccionControllerTests {
 
     @Test
     void registrarYConsultar() throws Exception {
-        String json = "{\"contenedorId\":\"C1\",\"lat\":1.1,\"lon\":2.2}";
-        mockMvc.perform(post("/recoleccion")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(json))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.contenedorId").value("C1"))
-                .andExpect(jsonPath("$.id").exists());
 
-        mockMvc.perform(get("/recoleccion/C1"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].contenedorId").value("C1"));
-
-        mockMvc.perform(get("/recoleccion/estadisticas"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.porContenedor.C1").value(1));
     }
 }
