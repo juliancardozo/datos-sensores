@@ -27,7 +27,7 @@ public class SensorReading {
         this.timestamp = timestamp;
     }
 
-    public String getId() { return id; }
+    public Long getId() { return id; }
     public Long getContainerId() { return containerId; }
     public void setContainerId(Long containerId) { this.containerId = containerId; }
     public Double getLevelPercentage() { return levelPercentage; }
