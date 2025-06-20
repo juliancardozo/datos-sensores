@@ -16,6 +16,14 @@ The `sensor-api` service supports SQL or MongoDB storage. Set `sensor.storage.ty
 in `sensor-api/src/main/resources/application.properties` (or environment variable)
 to enable MongoDB.
 
+## API documentation
+
+Each service exposes an OpenAPI specification and Swagger UI when running locally.
+Visit `http://localhost:8080/swagger-ui.html` for the sensor API and
+`http://localhost:8081/swagger-ui.html` for the garbage collection service.
+You can also import `docs/DatosSensores.postman_collection.json` into Postman to
+try the endpoints.
+
 
 The applications now store their data in MongoDB. Ensure a MongoDB instance is
 available locally on the default port before running the services.

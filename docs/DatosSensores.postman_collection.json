@@ -1,0 +1,74 @@
+{
+  "info": {
+    "name": "Datos Sensores API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Sensor API",
+      "item": [
+        {
+          "name": "List readings",
+          "request": {
+            "method": "GET",
+            "url": "{{sensor_base_url}}/api/readings"
+          }
+        },
+        {
+          "name": "Create reading",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"containerId\": 1,\n  \"levelPercentage\": 50.0,\n  \"timestamp\": \"2025-06-16T00:00:00\"\n}"
+            },
+            "url": "{{sensor_base_url}}/api/readings"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recoleccion API",
+      "item": [
+        {
+          "name": "Registrar",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contenedorId\": \"A1\",\n  \"lat\": -34.6,\n  \"lon\": -58.4,\n  \"recolectado\": \"2025-06-16T00:00:00\"\n}"
+            },
+            "url": "{{recoleccion_base_url}}/recoleccion"
+          }
+        },
+        {
+          "name": "Historial por contenedor",
+          "request": {
+            "method": "GET",
+            "url": "{{recoleccion_base_url}}/recoleccion/A1"
+          }
+        },
+        {
+          "name": "Exportar CSV",
+          "request": {
+            "method": "GET",
+            "url": "{{recoleccion_base_url}}/recoleccion/export"
+          }
+        },
+        {
+          "name": "Estadisticas",
+          "request": {
+            "method": "GET",
+            "url": "{{recoleccion_base_url}}/recoleccion/estadisticas"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {"key": "sensor_base_url", "value": "http://localhost:8080"},
+    {"key": "recoleccion_base_url", "value": "http://localhost:8081"}
+  ]
+}
