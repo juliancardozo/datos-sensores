@@ -1,6 +1,8 @@
 package com.micuota.recoleccion;
 
 import com.example.sensorapi.SensorApiApplication;
+import com.example.sensorapi.StorageConfig;
+import com.example.sensorapi.DataLoader;
 import com.example.sensorapi.model.SensorReading;
 import com.micuota.recoleccion.dto.RecoleccionDTO;
 import com.micuota.recoleccion.entity.Recoleccion;
@@ -20,7 +22,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    classes = {SensorApiApplication.class, MonitoreoApplication.class},
+    classes = {
+        SensorApiApplication.class,
+        MonitoreoApplication.class,
+        StorageConfig.class,
+        DataLoader.class
+    },
     properties = {"sensor.storage.type=mongo", "server.port=0"})
 public class CrossServicesIntegrationTest {
 
