@@ -50,6 +50,7 @@ public class RecoleccionService {
         Map<String, Long> porContenedor = all.stream()
                 .collect(Collectors.groupingBy(Recoleccion::getContenedorId, Collectors.counting()));
         Map<Integer, Long> porHora = all.stream()
+                .filter(r -> r.getFecha() != null)
                 .collect(Collectors.groupingBy(r -> r.getFecha().getHour(), Collectors.counting()));
         Map<String, Object> result = new HashMap<>();
         result.put("porContenedor", porContenedor);

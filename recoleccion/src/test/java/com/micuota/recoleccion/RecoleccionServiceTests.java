@@ -35,8 +35,6 @@ class RecoleccionServiceTests {
 
         Recoleccion saved = service.guardar(dto);
 
-        service.guardar(dto);
-
         List<Recoleccion> list = repository.findByContenedorId("TEST1");
         assertFalse(list.isEmpty());
         Recoleccion r = list.get(0);
