@@ -1,6 +1,10 @@
 package com.example.sensorapi;
 
-import com.example.sensorapi.repository.*;
+import com.example.sensorapi.repository.mongo.SensorReadingMongoRepository;
+import com.example.sensorapi.repository.jpa.SensorReadingRepository;
+import com.example.sensorapi.repository.MongoSensorReadingStore;
+import com.example.sensorapi.repository.SqlSensorReadingStore;
+import com.example.sensorapi.repository.SensorReadingStore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

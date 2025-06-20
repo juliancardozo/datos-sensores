@@ -1,6 +1,7 @@
 package com.example.sensorapi.repository;
 
 import com.example.sensorapi.model.SensorReading;
+import com.example.sensorapi.repository.jpa.SensorReadingRepository;
 
 import java.util.List;
 
