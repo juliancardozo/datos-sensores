@@ -38,3 +38,17 @@ se llenan a ritmos distintos. En cada paso se registran los niveles de llenado
 y se marca con `FULL` cuando un contenedor alcanza el 100 %. Este CSV permite
 visualizar de forma sencilla la evolución y los eventos de llenado.
 
+## 7. Rutas óptimas con grafos
+
+Para escenarios con **diez contenedores** se añadió una utilidad que
+representa cada contenedor como un nodo de un grafo completo. La clase
+`RutaOptimaService` aplica el algoritmo de **Dijkstra** para calcular la
+distancia mínima entre nodos y pondera esa distancia con el nivel de llenado y
+la capacidad de cada contenedor.
+
+El método `contenedorMasConveniente(origen)` retorna el contenedor cuya relación
+entre recorrido y volumen a recolectar resulta más eficiente. Este enfoque
+sirve como punto de partida para modelar rutas de recolección en situaciones
+reales donde la recolección periódica se ejecuta como un flujo o “tubo” de
+datos que alimenta la optimización.
+
