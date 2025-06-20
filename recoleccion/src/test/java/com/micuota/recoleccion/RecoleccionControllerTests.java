@@ -27,7 +27,9 @@ class RecoleccionControllerTests {
         mockMvc.perform(post("/recoleccion")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.contenedorId").value("C1"))
+                .andExpect(jsonPath("$.id").exists());
 
         mockMvc.perform(get("/recoleccion/C1"))
                 .andExpect(status().isOk())
