@@ -32,7 +32,10 @@ public class RecoleccionService {
         r.setContenedorId(dto.contenedorId);
         r.setLat(dto.lat);
         r.setLon(dto.lon);
-        r.setRecolectado(dto.recolectado != null ? dto.recolectado : java.time.LocalDateTime.now());
+        r.setTemperatura(dto.temperatura);
+        r.setPresion(dto.presion);
+        r.setCapacidadOcupada(dto.capacidadOcupada);
+        r.setFecha(dto.fecha != null ? dto.fecha : java.time.LocalDateTime.now());
         Recoleccion saved = repository.save(r);
         log.debug("Saved {}", saved);
         return saved;
@@ -47,7 +50,7 @@ public class RecoleccionService {
         Map<String, Long> porContenedor = all.stream()
                 .collect(Collectors.groupingBy(Recoleccion::getContenedorId, Collectors.counting()));
         Map<Integer, Long> porHora = all.stream()
-                .collect(Collectors.groupingBy(r -> r.getRecolectado().getHour(), Collectors.counting()));
+                .collect(Collectors.groupingBy(r -> r.getFecha().getHour(), Collectors.counting()));
         Map<String, Object> result = new HashMap<>();
         result.put("porContenedor", porContenedor);
         result.put("porHora", porHora);

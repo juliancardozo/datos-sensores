@@ -28,17 +28,21 @@ public class SimuladorRecoleccion {
             String[] ids = {"A1", "B2", "C3"};
 
             try (BufferedWriter writer = Files.newBufferedWriter(Path.of("recoleccion-datos.csv"))) {
-                writer.write("id,contenedorId,lat,lon,recolectado\n");
+                writer.write("id,contenedorId,lat,lon,temperatura,presion,capacidadOcupada,fecha\n");
                 for (int i = 0; i < 5; i++) {
                     RecoleccionDTO dto = new RecoleccionDTO();
                     dto.contenedorId = ids[random.nextInt(ids.length)];
                     dto.lat = -34.6 + random.nextDouble() * 0.01;
                     dto.lon = -58.4 + random.nextDouble() * 0.01;
-                    dto.recolectado = LocalDateTime.now().minusHours(random.nextInt(48));
+                    dto.temperatura = 15 + random.nextDouble() * 10;
+                    dto.presion = 101 + random.nextDouble();
+                    dto.capacidadOcupada = random.nextDouble() * 100;
+                    dto.fecha = LocalDateTime.now().minusHours(random.nextInt(48));
                     var saved = service.guardar(dto);
-                    writer.write(String.format("%s,%s,%.6f,%.6f,%s\n",
-
-                            saved.getId(), saved.getContenedorId(), saved.getLat(), saved.getLon(), saved.getRecolectado()));
+                    writer.write(String.format("%s,%s,%.6f,%.6f,%.2f,%.2f,%.2f,%s\n",
+                            saved.getId(), saved.getContenedorId(), saved.getLat(), saved.getLon(),
+                            saved.getTemperatura(), saved.getPresion(), saved.getCapacidadOcupada(),
+                            saved.getFecha()));
                     log.info("Insertada {}", saved);
                 }
                 log.info("Datos exportados a recoleccion-datos.csv");

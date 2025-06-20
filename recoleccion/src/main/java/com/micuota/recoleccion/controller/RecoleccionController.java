@@ -52,9 +52,12 @@ public class RecoleccionController {
     public void exportar(HttpServletResponse response) throws IOException {
         response.setHeader("Content-Disposition", "attachment; filename=\"recoleccion.csv\"");
         try (var writer = response.getWriter()) {
-            writer.println("id,contenedorId,lat,lon,recolectado");
+            writer.println("id,contenedorId,lat,lon,temperatura,presion,capacidadOcupada,fecha");
             for (Recoleccion r : service.listarTodos()) {
-                writer.printf("%s,%s,%.6f,%.6f,%s%n", r.getId(), r.getContenedorId(), r.getLat(), r.getLon(), r.getRecolectado());
+                writer.printf("%s,%s,%.6f,%.6f,%.2f,%.2f,%.2f,%s%n",
+                        r.getId(), r.getContenedorId(), r.getLat(), r.getLon(),
+                        r.getTemperatura(), r.getPresion(), r.getCapacidadOcupada(),
+                        r.getFecha());
 
             }
         }

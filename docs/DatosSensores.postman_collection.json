@@ -38,7 +38,7 @@
             "header": [{"key": "Content-Type", "value": "application/json"}],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"contenedorId\": \"A1\",\n  \"lat\": -34.6,\n  \"lon\": -58.4,\n  \"recolectado\": \"2025-06-16T00:00:00\"\n}"
+              "raw": "{\n  \"contenedorId\": \"A1\",\n  \"lat\": -34.6,\n  \"lon\": -58.4,\n  \"temperatura\": 20.0,\n  \"presion\": 101.0,\n  \"capacidad_ocupada\": 50.0,\n  \"fecha\": \"2025-06-16T00:00:00\"\n}"
             },
             "url": "{{recoleccion_base_url}}/recoleccion"
           }
